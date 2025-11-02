@@ -9,45 +9,76 @@ body {
     color: #222;
     line-height: 1.6;
     background-color: #fafafa;
+
+    /* Make room for the left sidebar */
+    padding-left: 260px;
 }
 
-/* Header */
+/* Header (now a left sidebar) */
 header {
     background: #111;
     color: #fff;
-    padding: 15px 50px;
-    position: sticky;
+    padding: 30px 20px;
+    position: fixed;
+    left: 0;
     top: 0;
+    bottom: 0;
+    width: 240px;
     z-index: 10;
+    overflow-y: auto;
 }
 
+/* Navigation inside the sidebar */
 nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
 }
 
+/* Logo at top of sidebar */
 .logo {
-    font-size: 1.5em;
+    font-size: 1.25em;
+    margin-bottom: 20px;
+    color: #fff;
 }
 
+/* Vertical nav links */
 .nav-links {
     list-style: none;
+    width: 100%;
+    padding-left: 0;
 }
 
 .nav-links li {
-    display: inline;
-    margin: 0 15px;
+    display: block;
+    margin: 10px 0;
 }
 
 .nav-links a {
     color: #fff;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s, background 0.2s;
+    padding: 8px 10px;
+    display: inline-block;
+    border-radius: 6px;
+    width: 100%;
 }
 
 .nav-links a:hover {
-    color: #c095f5;
+    color: #111;
+    background: #c095f5;
+}
+
+.nav-links a.active {
+    background: #00bcd4;
+    color: #fff;
+}
+
+/* Keep main content readable */
+main, section, .page-header {
+    /* content uses body padding-left to avoid overlapping sidebar */
 }
 
 /* Hero Section */
@@ -133,4 +164,52 @@ footer {
     background: #111;
     color: white;
     font-size: 0.9em;
+    margin-top: 40px;
+}
+
+/* Responsive: collapse sidebar to top navigation on smaller screens */
+@media (max-width: 700px) {
+    body {
+        padding-left: 0;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        margin-bottom: 0;
+    }
+
+    .nav-links {
+        display: flex;
+    }
+
+    .nav-links li {
+        display: inline;
+        margin: 0 10px;
+    }
+
+    .nav-links a {
+        padding: 6px 8px;
+        background: transparent;
+        border-radius: 0;
+    }
+
+    .nav-links a:hover {
+        color: #c095f5;
+        background: transparent;
+    }
 }
