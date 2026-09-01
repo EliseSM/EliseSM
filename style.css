@@ -413,6 +413,24 @@ h2 {
   margin: 6px 0 12px;
 }
 
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.tech-tag {
+  background: var(--bg);
+  border: 1px solid var(--secondary);
+  color: var(--primary-dark);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
 .blog-content p {
   color: var(--text);
 }
