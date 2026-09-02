@@ -408,10 +408,9 @@ h2 {
 
 .blog-card {
   display: flex;
-  gap: 20px;
   background: var(--surface);
-  border: 1.5px dashed var(--secondary);
-  border-radius: 16px;
+  border: 1px solid var(--secondary);
+  border-radius: 3px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(46, 42, 44, 0.05);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -428,7 +427,27 @@ h2 {
 }
 
 .blog-content {
-  padding: 24px;
+  position: relative;
+  flex: 1;
+  padding: 24px 24px 24px 56px;
+  background-color: var(--surface);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    var(--border) 28px
+  );
+}
+
+.blog-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 34px;
+  width: 2px;
+  background: var(--primary);
+  opacity: 0.55;
 }
 
 .blog-content h2 {
